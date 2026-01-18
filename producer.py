@@ -2,9 +2,11 @@ import json
 import time
 import random
 import boto3
+import os
 
-STREAM_NAME = "kds-stream1"
-REGION = "us-east-1"
+# Read from environment variables passed by Terraform
+STREAM_NAME = os.getenv("STREAM_NAME", "iot-sensor-stream")
+REGION = os.getenv("REGION", "us-east-1")
 
 
 def get_data():
