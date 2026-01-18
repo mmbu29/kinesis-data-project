@@ -7,10 +7,6 @@ terraform {
       version = "~> 5.0"
     }
 
-    null = {
-      source  = "hashicorp/null"
-      version = "~> 3.0"
-    }
   }
 
   backend "s3" {
@@ -129,11 +125,9 @@ EOT
   }
 }
 
-resource "null_resource" "run_python_producer" {
-  depends_on = [aws_kinesis_stream.iot_stream]
 
-  provisioner "local-exec" {
-    command = "python3 producer.py"
-  }
-}
+
+
+
+
 
